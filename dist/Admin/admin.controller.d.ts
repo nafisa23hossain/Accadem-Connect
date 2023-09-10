@@ -1,0 +1,43 @@
+/// <reference types="multer" />
+import { AdminService } from './admin.service';
+import { AdminLoginDto } from './dto/adminLogin.dto';
+import { StudentDto } from 'src/Student/dto/Student.dto';
+import { ModeratorDto } from 'src/Moderator/dto/Moderator.dto';
+import { UpdateAdminDTO } from './dto/updateAdmin.dto';
+import { UpdateModeratorDto } from 'src/Moderator/dto/updateModerator.dto';
+import { HrDto } from 'src/Hiring-Manager/dto/hr.dto';
+import { UpdateHrDto } from 'src/Hiring-Manager/dto/updatehr.dto';
+import { ModeratorAccessDto } from 'src/Moderator/dto/moderatorAccess.dto';
+import { UpdateStudentDto } from 'src/Student/dto/updateStudent.dto';
+import { ForgetPassAdminDto, PasswordChangeAdminDto, PasswordForgetAdminDto } from './dto/changePassAdmin.dto';
+export declare class AdminController {
+    private readonly adminService;
+    constructor(adminService: AdminService);
+    adminLogin(admin: AdminLoginDto, session: any): Promise<any>;
+    updateAdmin(admin: UpdateAdminDTO, session: any, myfileobj: Express.Multer.File): any;
+    addStudent(student: StudentDto, myfileobj: Express.Multer.File, session: any): any;
+    getAllStudent(): any;
+    getStudentByAdminId(session: any): any;
+    getStudentById(id: number, session: any): any;
+    updateStudent(id: number, student: UpdateStudentDto, session: any): any;
+    deleteStudent(id: number, session: any): any;
+    addModerator(moderator: ModeratorDto, myfileobj: Express.Multer.File, session: any): any;
+    getModerator(session: any): any;
+    getModeratorByAdminId(session: any): any;
+    getModeratorById(id: number, session: any): any;
+    updateModeratorByAdminId(id: number, moderator: UpdateModeratorDto, session: any): any;
+    deleteModeratorByAdminId(id: number, session: any): any;
+    addHr(hr: HrDto, myfileobj: Express.Multer.File, session: any): any;
+    getHr(session: any): any;
+    getHrwithAdmin(session: any): any;
+    getHrById(id: number, session: any): any;
+    updateHrByAdminId(id: number, hr: UpdateHrDto, session: any): any;
+    deleteHr(id: number, session: any): any;
+    moderatorAccess(id: number, access: ModeratorAccessDto, session: any): any;
+    adminProfile(session: any): any;
+    adminLogout(session: any): any;
+    changePassword(changedPass: PasswordChangeAdminDto, session: any): any;
+    getting(res: any, session: any): Promise<any>;
+    sentMail(data: PasswordForgetAdminDto): any;
+    forgetPass(data: ForgetPassAdminDto): any;
+}
